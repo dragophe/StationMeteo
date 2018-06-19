@@ -8,7 +8,7 @@
       
 
         body {
-            background-image: url("https://image.noelshack.com/fichiers/2018/24/3/1528884454-fantastic-world-battle-for-sularia-volcano-533813-1920x1080.jpg");
+            background-image: url("Volcano.jpg");
 
         }
 
@@ -71,10 +71,10 @@
         </p2>
     </div>
     <div2 class="bas">
-    <img src="https://image.noelshack.com/fichiers/2018/24/4/1528968667-logo-iut-cachan-upsaclay-bleu-sansfond.png" width="200" height="200">
+    <img src="Logo_IUT.png" width="200" height="200">
     </div2>
     <div3 class="vroum">
-    <img src="https://image.noelshack.com/fichiers/2018/24/4/1528969799-vroum-arnaud.png" width="300" height="300">
+    <img src="Vroum_arnaud.png" width="250" height="300">
     </div3>
     <p>réalisé par Dorian Lamarche, Arnaud Wattebled et Florian Zanin</p>
     </body>
