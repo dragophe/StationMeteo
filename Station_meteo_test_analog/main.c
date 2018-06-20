@@ -27,20 +27,19 @@ int main (void)
 	while(ADC_ConversionDone() !=0);
 	niveau = ADC_GetValue();			//recupere la valeur entre 4096 et 0
 		
+		/////////////////////////////////////////affichage de la valeur a envoyer avec le niveau d'eau////////////////////
+
+	sprintf(affichage,"Niveau= %04d",niveau);
+			GLCD_DrawString(0, 2*24, affichage);
 		
 		/////////////////////////////////////////////// palier determinant le niveau d'eau present////////////////////////////////////////
 					if(niveau <= 1000)
 		{
 			niveau = (niveau-1000)/(-1);
-			sprintf(affichage," ");
+			sprintf(affichage,"Niveau= %04d",niveau);
 			GLCD_DrawString(0, 3*24, affichage);}
-		
-					
 			
-			/////////////////////////////////////////affichage de la valeur a envoyer avec le niveau d'eau////////////////////
 
-	sprintf(affichage,"Niveau= %04d",niveau);
-			GLCD_DrawString(0, 2*24, affichage);
 		
 	} 
 	
