@@ -29,26 +29,13 @@ int main (void)
 		
 		
 		/////////////////////////////////////////////// palier determinant le niveau d'eau present////////////////////////////////////////
-					if(niveau <= 4096 && niveau >=2048)
-		{sprintf(affichage,"Niveau= 1");
+					if(niveau <= 1000)
+		{
+			niveau = (niveau-1000)/(-1);
+			sprintf(affichage," ");
 			GLCD_DrawString(0, 3*24, affichage);}
 		
-					if(niveau <= 2047 && niveau >=801)
-		{sprintf(affichage,"Niveau= 2");
-			GLCD_DrawString(0, 3*24, affichage);}
-		
-					if(niveau <= 800 && niveau >=851)
-		{sprintf(affichage,"Niveau= 3");
-			GLCD_DrawString(0, 3*24, affichage);}
-		
-					if(niveau <= 850 && niveau >=701)
-		{sprintf(affichage,"Niveau= 4");
-			GLCD_DrawString(0, 3*24, affi chage);}
-		
-					if(niveau <= 700)
-		{sprintf(affichage,"Niveau= 5");
-			GLCD_DrawString(0, 3*24, affichage);}
-
+					
 			
 			/////////////////////////////////////////affichage de la valeur a envoyer avec le niveau d'eau////////////////////
 
