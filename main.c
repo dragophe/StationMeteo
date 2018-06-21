@@ -17,7 +17,7 @@ int main(int argc, char ** argv) {
 
   FILE * fdp;
 
-  // Open the Port. We want read/write, no "controlling tty" status, and open it no matter what state DCD is in
+  //---------------Ouverture du port faisant la réception Bluetooth---------------/
   fd = open("/dev/serial0", O_RDWR | O_NOCTTY);
   if (fd == -1) {
     perror("open_port: Unable to open /dev/ttyAMA0 - ");
@@ -53,9 +53,8 @@ int main(int argc, char ** argv) {
   
  while(1)
   {
-	  
 	
-	/*sprintf(buf,"25654785236951426");*/
+	//--------------------Lecture de la trame reçu en Bluetooth--------------------/
 	n = read(fd, (void*) buf, sizeof(buf));
 	if (n < 0) {
 		perror("Read failed - \n");
@@ -69,10 +68,8 @@ int main(int argc, char ** argv) {
 		buf[n] = '\0';
 	}
 
-
 	
-	
-	
+	//----------------------------------Triage du tableau----------------------------------/
 	
 	for(i = 0;i<n;i++)
 	{
@@ -92,14 +89,18 @@ int main(int argc, char ** argv) {
 	
 	printf("%i bytes read : %s\n", n, tab);
 	
+	//---------------------Création des différentes chaîne des caractères---------------------/
+	 
 	sprintf(tabtp,"%c%c,%c ",tab[1],tab[2],tab[3]);
 	sprintf(tabhum,"%c%c%c ",tab[4],tab[5],tab[6]);
 	sprintf(tabpres,"%c%c%c%c,%c ",tab[7],tab[8],tab[9],tab[10],tab[11]);
 	sprintf(tabvent,"%c%c%c ",tab[12],tab[13],tab[14]);
 	sprintf(tabeau,"%c%c,%c ",tab[15],tab[16],tab[17]);
 
-	fdp=fopen ("/var/www/html/donnees.txt","w+");
+	fdp=fopen ("/var/www/html/donnees.txt","w+"); //Création du document texte
 	
+	//------------------Remplissage du document texte avec les valeurs reçu------------------/
+	 
 	if (fdp != NULL)
 	{
 		printf("%c",tabvent[0]);
@@ -121,14 +122,6 @@ int main(int argc, char ** argv) {
 	{
 		printf ("ouvre pas\n");
 	}
-	/*while (i<n)
-	{
-		buf[i]="\0";
-		i++;
-	}*/
-	
-
-	
 	fclose(fdp);
 	sleep(5);
 	
